@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
+
+.navbar {
+  padding: 1rem 1rem !important;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  background-color: white;
+}
+@media (min-width: 700px) { 
+  .navbar{
+    padding-left: 7vw !important;
+    padding-right: 7vw !important;
+  }  
+}
+
+.navbar-text {
+  padding-right: 1rem;
+  padding-left: 1rem;
+}
