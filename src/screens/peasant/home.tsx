@@ -11,14 +11,16 @@ import { Container, Button } from 'reactstrap';
 
 import { LMNavbar as Navbar} from '../../components/navbar';
 
-export const Home: FunctionComponent<RouteComponentProps> = (props) => {
+interface HomeProps {
+  user: LM.StoreUser;
+}
 
+export const Home: FunctionComponent<RouteComponentProps<HomeProps>> = ({ navigate, user}) => {
+  console.log(user);
   return (
     <>
-      <Container>
-        <Button size='sm' onClick={() => Api.Auth.signOut()}>
-          Log out
-        </Button>
+      <Container fluid>
+        <Navbar user={user}/>
       </Container>
     </>
   );

@@ -15,10 +15,17 @@ import {
   NavbarText
 } from 'reactstrap';
 
+import { Api } from '../api';
+import { LM } from '../localmart_schema';
+
 import 'bootstrap/dist/css/bootstrap.css';
 import '../css/navbar.css';
 
-export const LMNavbar: FunctionComponent = (props) => {
+interface NavbarProps {
+  user?: LM.StoreUser;
+}
+
+export const LMNavbar: FunctionComponent<NavbarProps> = ({ user }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggle = () => setIsOpen(!isOpen);
@@ -37,7 +44,7 @@ export const LMNavbar: FunctionComponent = (props) => {
             </NavItem>
 
             <NavItem>
-              <NavLink href="https://github.com/reactstrap/reactstrap">GitHub</NavLink>
+              <NavLink href="https://github.com/duncanista/localmart">GitHub</NavLink>
             </NavItem>
           </Nav>
 
@@ -45,7 +52,7 @@ export const LMNavbar: FunctionComponent = (props) => {
             <NavbarText>
             <UncontrolledDropdown nav inNavbar>
               <DropdownToggle nav caret>
-                Name Lastname
+                {user?.name + " " + user?.lastname}
               </DropdownToggle>
               <DropdownMenu right>
                 <DropdownItem>
@@ -55,7 +62,7 @@ export const LMNavbar: FunctionComponent = (props) => {
                   Settings
                 </DropdownItem>
                 <DropdownItem divider />
-                <DropdownItem>
+                <DropdownItem onClick={() => Api.Auth.signOut()}>
                   Log out
                 </DropdownItem>
               </DropdownMenu>

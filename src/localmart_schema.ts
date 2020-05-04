@@ -32,7 +32,7 @@ export namespace LM {
   export interface StoreUser {
     email: string;
     name?: string;
-
+    lastname?: string;
     admin: boolean;
     communities?: Community;
   }

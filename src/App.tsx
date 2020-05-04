@@ -6,12 +6,6 @@ import { Auth } from './fb_app';
 import { Api } from './api';
 import { LM } from './localmart_schema';
 
-
-import { Container, Button } from 'reactstrap';
-
-
-
-import { LMNavbar as Navbar } from './components/navbar';
 import { LoadingCube } from './components/loading';
 import { Landing } from './screens/landing';
 import { Login } from './screens/login';
@@ -47,11 +41,11 @@ const App: FunctionComponent = (props) => {
         { user ? (
           user.admin ? (
             <>
-              <Home path="/" />
+              <Home path="/" user={user} />
             </>
           ) : (
             <>
-              <Home path="/" />
+              <Home path="/" user={user} />
             </>
           )
         ) : (
@@ -60,6 +54,7 @@ const App: FunctionComponent = (props) => {
           <Login path='login' />
           </>
         )}
+        
       </Router>
     </>
   );

@@ -213,7 +213,7 @@ export const Landing: FunctionComponent<RouteComponentProps> = (props) => {
           <div className="landing-container">
             <Row className="landing-footer">
               <Col md={8}>
-                nocorp™ - 2020
+                nocorp™ 2020
             </Col>
 
             <Col md={4} className="landing-footer-right">

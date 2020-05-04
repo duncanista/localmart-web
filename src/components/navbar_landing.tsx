@@ -69,6 +69,12 @@ export const LNavbar: FunctionComponent = (props) => {
               </Link>
             </NavLink>
           </NavbarText>
+
+          <NavbarText>
+            <NavLink href="/login" className="navbar-text" active>
+                Log in
+            </NavLink>
+          </NavbarText>
           </Nav>
         </Collapse>
       </Navbar>
