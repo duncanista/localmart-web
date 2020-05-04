@@ -1,0 +1,15 @@
+{
+  "defaultSeverity": "error",
+  "extends": ["tslint:recommended"],
+  "linterOptions": {
+    "exclude": ["node_modules", "build"]
+  },
+  "rules": {
+    "ordered-imports": true,
+    "no-unused-variable": true,
+    "no-unused-expression": true,
+    "no-namespace": false,
+    "max-classes-per-file": false,
+    "no-console": false
+  }
+}

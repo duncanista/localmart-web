@@ -1,25 +1,62 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { FunctionComponent, useEffect, useState } from 'react'
+import { Router } from '@reach/router';
+import 'bootstrap/dist/css/bootstrap.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+import { Auth } from './fb_app';
+import { Api } from './api';
+import { LM } from './localmart_schema';
+
+import { LoadingCube } from './components/loading';
+import { Landing } from './screens/landing';
+import { Login } from './screens/login';
+import { Home } from './screens/peasant/home';
+
+const App: FunctionComponent = (props) => {
+  const [user, setUser] = useState<LM.StoreUser | null>(null)
+  const [ready, setReady] = useState(false)
+  useEffect(() => {
+    const unsubAuth = Auth.onAuthStateChanged(
+      async (authUser: firebase.User | null, error?: firebase.auth.Error) => {
+        let storeUser: LM.StoreUser | null = null
+
+        if (authUser) {
+          const { uid } = authUser
+          storeUser = { uid, ...(await Api.User.read(uid)) }
+        }
+
+        setUser(storeUser)
+        setReady(true)
+      }
+    )
+    return function cleanup() {
+      unsubAuth()
+    }
+  }, [])
+
+  return !ready ? (
+    <LoadingCube/>
+  ) :  (
+    <>
+      <Router>
+        { user ? (
+          user.admin ? (
+            <>
+              <Home path="/" user={user} />
+            </>
+          ) : (
+            <>
+              <Home path="/" user={user} />
+            </>
+          )
+        ) : (
+          <>
+          <Landing path="/" />
+          <Login path='login' />
+          </>
+        )}
+        
+      </Router>
+    </>
   );
 }
 
