@@ -1,6 +1,5 @@
 import React, { FunctionComponent, useEffect, useState } from 'react'
-import { Router } from '@reach/router';
-
+import { RouteComponentProps } from '@reach/router';
 import {
   Container,
   Row,
@@ -11,20 +10,20 @@ import {
 } from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.css';
 import '../css/landing.css';
-import HumanT from '../assets/humaaan-4.svg';
-import HumanM1 from '../assets/humaaan-3.svg';
-import HumanM2 from '../assets/humaaan-2.svg';
-import HumanC1 from '../assets/humaaan-card-1.svg';
-import HumanC2 from '../assets/humaaan-card-2.svg';
-import HumanC3 from '../assets/humaaan-card-3.svg';
-import HumanC4 from '../assets/humaaan-card-4.svg';
-import HumanC5 from '../assets/humaaan-card-5.svg';
-import Jordan from '../assets/humaaan-jordan.svg';
+import HumanT from '../assets/humans/humaaan-4.svg';
+import HumanM1 from '../assets/humans/humaaan-3.svg';
+import HumanM2 from '../assets/humans/humaaan-2.svg';
+import HumanC1 from '../assets/humans/humaaan-card-1.svg';
+import HumanC2 from '../assets/humans/humaaan-card-2.svg';
+import HumanC3 from '../assets/humans/humaaan-card-3.svg';
+import HumanC4 from '../assets/humans/humaaan-card-4.svg';
+import HumanC5 from '../assets/humans/humaaan-card-5.svg';
+import Jordan from '../assets/humans/humaaan-jordan.svg';
 
 
 import { LNavbar } from '../components/navbar_landing';
 
-export const Landing: FunctionComponent = (props) => {
+export const Landing: FunctionComponent<RouteComponentProps> = (props) => {
   return (
     <>
       <Container fluid>
@@ -81,7 +80,7 @@ export const Landing: FunctionComponent = (props) => {
               <Col md={6} className="landing-communities-info-item">
                 <h2>2,495</h2>
                 <h5>Users</h5>
-                <p>LocalMart is being used all around to world.</p>
+                <p>LocalMart is being used all around the world.</p>
               </Col>
             </Row>
           </Col>
@@ -174,7 +173,7 @@ export const Landing: FunctionComponent = (props) => {
 
                       <FormGroup>
                         <Col className="landing-form-input">
-                          <Label for="exampleEmail">What's your community name?</Label>
+                          <Label for="exampleEmail">What's your community called?</Label>
                           <InputGroup size="lg">
                             <Input type="text" name="community" id="community" placeholder="Tec de Monterrey" />
                           </InputGroup>

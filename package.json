@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@babel/plugin-transform-flow-strip-types": "^7.9.0",
+    "@babel/preset-typescript": "^7.9.0",
     "@reach/router": "^1.3.3",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
@@ -13,23 +15,28 @@
     "@types/react": "^16.9.0",
     "@types/react-bootstrap": "^1.0.1",
     "@types/react-dom": "^16.9.0",
+    "@types/react-lottie": "^1.2.3",
     "@types/react-scroll": "^1.5.4",
     "@types/reactstrap": "^8.4.2",
     "bootstrap": "^4.4.1",
+    "final-form": "^4.19.1",
     "firebase": "^7.14.2",
     "react": "^16.13.1",
     "react-bootstrap": "^1.0.1",
     "react-dom": "^16.13.1",
+    "react-final-form": "^6.4.0",
+    "react-lottie": "^1.2.3",
+    "react-native-typescript-transformer": "^1.2.13",
     "react-scripts": "3.4.1",
     "react-scroll": "^1.7.16",
     "reactstrap": "^8.4.1",
     "typescript": "~3.7.2"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start": "rescripts start",
+    "build": "rescripts build",
+    "test": "rescripts test",
+    "eject": "rescripts eject"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -45,5 +52,38 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "rescripts": [
+    [
+      "use-babel-config",
+      {
+        "comments": false,
+        "presets": [
+          "react-app",
+          [
+            "@babel/preset-typescript",
+            {
+              "allowNamespaces": true
+            }
+          ]
+        ],
+        "plugins": [
+          [
+            "@simbathesailor/babel-plugin-use-what-changed",
+            {
+              "active": false
+            }
+          ]
+        ]
+      }
+    ]
+  ],
+  "devDependencies": {
+    "@babel/plugin-transform-typescript": "^7.9.6",
+    "@rescripts/cli": "^0.0.13",
+    "@rescripts/rescript-use-babel-config": "^0.0.9",
+    "@simbathesailor/babel-plugin-use-what-changed": "^0.1.14",
+    "@simbathesailor/use-what-changed": "^0.1.21",
+    "tslint": "^6.1.1"
   }
 }

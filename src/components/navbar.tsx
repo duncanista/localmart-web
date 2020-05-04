@@ -26,7 +26,7 @@ export const LMNavbar: FunctionComponent = (props) => {
   return (
     <div>
       <Navbar color="faded" light expand="md" className="navbar">
-        <NavbarBrand href="/">Localmart</NavbarBrand>
+        <NavbarBrand href="/">LocalMart</NavbarBrand>
         <NavbarToggler onClick={toggle} />
 
         <Collapse isOpen={isOpen} navbar>
