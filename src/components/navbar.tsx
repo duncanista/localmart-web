@@ -39,13 +39,18 @@ export const LMNavbar: FunctionComponent<NavbarProps> = ({ user }) => {
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
 
-            <NavItem>
-              <NavLink href="/components/">Products</NavLink>
+          <NavItem>
+              <NavLink href="users">Users</NavLink>
             </NavItem>
 
             <NavItem>
-              <NavLink href="https://github.com/duncanista/localmart">GitHub</NavLink>
+              <NavLink href="products">Products</NavLink>
             </NavItem>
+
+            <NavItem>
+              <NavLink href="products">Companies</NavLink>
+            </NavItem>
+
           </Nav>
 
           <Nav>

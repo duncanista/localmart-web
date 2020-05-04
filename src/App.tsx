@@ -9,7 +9,9 @@ import { LM } from './localmart_schema';
 import { LoadingCube } from './components/loading';
 import { Landing } from './screens/landing';
 import { Login } from './screens/login';
-import { Home } from './screens/peasant/home';
+import { Home as PeasantHome } from './screens/peasant/home';
+import { Home as AdminHome } from './screens/admin/home';
+import { Products as AdminProducts } from './screens/admin/products';
 
 const App: FunctionComponent = (props) => {
   const [user, setUser] = useState<LM.StoreUser | null>(null)
@@ -41,11 +43,12 @@ const App: FunctionComponent = (props) => {
         { user ? (
           user.admin ? (
             <>
-              <Home path="/" user={user} />
+              <AdminHome path="/" user={user} />
+              <AdminProducts path="/products" user={user} />
             </>
           ) : (
             <>
-              <Home path="/" user={user} />
+              <PeasantHome path="/" user={user} />
             </>
           )
         ) : (
