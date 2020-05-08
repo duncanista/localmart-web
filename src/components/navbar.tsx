@@ -23,9 +23,10 @@ import '../css/navbar.css';
 
 interface NavbarProps {
   user?: LM.StoreUser;
+  userActive?: boolean;
 }
 
-export const LMNavbar: FunctionComponent<NavbarProps> = ({ user }) => {
+export const LMNavbar: FunctionComponent<NavbarProps> = ({ user, userActive = false }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggle = () => setIsOpen(!isOpen);
@@ -38,10 +39,13 @@ export const LMNavbar: FunctionComponent<NavbarProps> = ({ user }) => {
 
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
-
-          <NavItem>
-              <NavLink href="users">Users</NavLink>
-            </NavItem>
+            { user?.admin && (
+               <NavItem>
+               <NavLink href="users" active={userActive} >Users</NavLink>
+             </NavItem>
+              )
+            }
+           
 
             <NavItem>
               <NavLink href="products">Products</NavLink>

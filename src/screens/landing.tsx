@@ -27,9 +27,7 @@ export const Landing: FunctionComponent<RouteComponentProps> = (props) => {
   return (
     <>
       <Container fluid>
-        <div className="">
           <LNavbar />
-        </div>
 
         <div className="landing-container">
           <Row className="landing-start">

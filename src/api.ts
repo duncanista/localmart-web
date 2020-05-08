@@ -214,9 +214,7 @@ export namespace Api {
     }
   }
 
-  export class Product extends StoreEntityApi<LM.Product & LM.idd>(
-    'products'
-  ) {
+  export class Product extends StoreEntityApi<LM.Product & LM.idd>('products') {
     @failWith(undefined)
     public static async readWithSerial(serialNo: string) {
       const queryResult = await Firestore.collection(this._collectionPath)
