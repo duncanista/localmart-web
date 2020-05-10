@@ -35,11 +35,12 @@ Documents, much like JSON objects or dictionaries contain key-value pairs, calle
 All documents must be contained in collections, where we can group and keep documents of the same type, storing information for the same object. Documents cannot contain other documents within them, but they can point to other collections (i.e., sub-collections, which would be one level down in the hierarchical tree). The root of the tree only contains collections, since documents can only exist within them.
 
 ![Firestore's data model](/report-images/IMG_0554.PNG)
+>An example of how data is modeled in Firestore: collections containing documents, potentially pointing to sub-collections.  
 
 The core advantage of this model is how fast and easy reading becomes, given that all the information we could require is already in one place, due to the usage of denormalized data. Therefore, there is no longer need to use join operations and searching through multiple tables to take place. And while writing will now have to take place multiple times, in multiple places, the idea behind this model is that in the majority of cases, database reads will outnumber writes.
 
 To get data, Firestore implements shallow queries. With the alternating “collection-document-collection-...” nomenclature, we can retrieve only the data we want from a collection or document without unnecessarily reading any collections and documents nested further. When we do need access deeper, in terms of code, we just have to keep drilling-down.  
-i.e.,  
+>i.e.,  
 ``collection().document()`` will only acess the requested document even if it points to a sub-collection  
 ``collection().document().collection().document()`` would give us access to data in a nested document
 
@@ -66,7 +67,8 @@ Considering the requirements of the real world situation and Cloud Firestore’s
 
 ## User manual
 
-1. Visit: https://localmarto.web.app/   
+1. Visit: https://localmarto.web.app/  
+
 To access, click on the _Log in_ button on the top right corner.
 ![01](/report-images/01_manual.jpeg)
 
@@ -82,21 +84,33 @@ Super strong password: ``julius`` (we had to fulfill the 6 character minimum)
 3. Click on **Users** to see the registered users to date.
 ![05](/report-images/05_manual.jpeg)
 
-Since you have admin privileges (and very likely you will want to test all the functionality of the database, which includes writing and not only reading), you can click on the blue ``Add`` button on the top left to add a new user.
+:bulb: Since you have admin privileges (and very likely you will want to test all the functionality of the database, which includes writing and not only reading), you can click on the blue ``Add`` button on the top left to add a new user.
 
-4. You can now add values in the fields, which will be recorded in a new document in Firestore when you save your changes.
-![06](/report-images/06_manual.jpeg)
+4. You can now add values in the fields, which will be recorded in a new document in Firestore when you save your changes.  
+This is a bit of a private, admin-controlled user sign up page, hence the prompts for passwords.  
+You can also define if this new user will have admin privileges or not.
+![06](/report-images/06_manual.png)
 
-5. Don't forget to visit the products section too! Go to **Products** in the navbar.
+5. Need to remove a user? On the table showing all the existing users, click on any user. It should take you here:
+![08](/report-images/08_manual.png)  
+You can now click on the ``Delete`` button should you want to remove the user from the app and the database.
+
+6. As you'd expect, you an also edit users.  
+Again, click on a user from the table. You should see a screen like the previous one.  
+**Now, try editing one of the fields** :warning: otherwise, the ``Save`` button will not be enabled.
+![09](/report-images/09_manual.png)  
+
+7. Don't forget to visit the products section too! Go to **Products** in the navbar.
 You should be able to see current listing, and to add a listing as well, using the blue ``Add`` button on the top left.
 ![07](/report-images/07_manual.jpeg)
+As with users, you can also edit details of the listings or remove them.
 
 
 
 ## Information sources
 * Firebase. (March 26, 2018). _What is a NoSQL Database? How is Cloud Firestore structured? | Get to Know Cloud Firestore #1_. Retrieved from: https://youtu.be/v_hR4K4auoQ 
 
-* Firebase Documentation (). _Cloud Firestore data model_. Retrieved from: https://firebase.google.com/docs/firestore/data-model  
+* Firebase Documentation (n.d.). _Cloud Firestore data model_. Retrieved from: https://firebase.google.com/docs/firestore/data-model  
 
 * GitHub Guides (January 15, 2014). _Mastering Markdown_. Retrieved from: https://guides.github.com/features/mastering-markdown/ 
 
