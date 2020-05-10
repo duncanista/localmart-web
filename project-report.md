@@ -34,7 +34,7 @@ For the application’s database implementation, Cloud Firestore was chosen. Thi
 Documents, much like JSON objects or dictionaries contain key-value pairs, called fields in the Cloud Firestore nomenclature. Fields can be from numbers and strings to maps, which resemble another JSON object contained in the document. Documents cannot exceed a MegaByte in size.
 All documents must be contained in collections, where we can group and keep documents of the same type, storing information for the same object. Documents cannot contain other documents within them, but they can point to other collections (i.e., sub-collections, which would be one level down in the hierarchical tree). The root of the tree only contains collections, since documents can only exist within them.
 
-[image goes here]
+![Firestore's data model](/report-images/IMG_0554.png)
 
 The core advantage of this model is how fast and easy reading becomes, given that all the information we could require is already in one place, due to the usage of denormalized data. Therefore, there is no longer need to use join operations and searching through multiple tables to take place. And while writing will now have to take place multiple times, in multiple places, the idea behind this model is that in the majority of cases, database reads will outnumber writes.
 
@@ -45,7 +45,7 @@ i.e.,
 
 Certainly, not having a schema and filling certain fields “by convention” when writing can seem risky, and coding defensively IS encouraged when working with schemaless databases. Nonetheless, this offers the ability of adding additional fields or omitting fields in documents for various reasons without error. And Firestore’s security rules, also configured by the developer, contribute significantly to enforcing certain measures or guaranteeing that no user (no matter the privilege level, if any) has access to data they shouldn’t see or modify.
 
-[another image goes here]
+![Our preliminary model](/report-images/initial-diagram.JPG)
 
 Considering the requirements of the real world situation and Cloud Firestore’s data model, Localmart’s database is comprised of the following collections:
 
