@@ -18,7 +18,7 @@
 ---
 
 ## Rationale
-_Localmart_ is an ally for all those who wish to buy or sell an article or service online, but only within a local community they belong to. It could be a university campus, a residential zone or complex. Users who want to sell something just have to post the article, add its name, description, and image. A company or brand also has to be added with the listing, which can be selected if already stored in the application’s database, thus, preventing users from typing the brand name differently, which could result in some products not showing up if a search is made by the company.
+_LocalMart_ is an ally for all those who wish to buy or sell an article or service online, but only within a local community they belong to. It could be a university campus, a residential zone or complex. Users who want to sell something just have to post the article, add its name, description, and image. A company or brand also has to be added with the listing, which can be selected if already stored in the application’s database, thus, preventing users from typing the brand name differently, which could result in some products not showing up if a search is made by the company.
 
 We decided to use the React library because we find an excellent ally to make all kinds of web or mobile applications. Basically it is about rendering HTML on the server and on the client, reducing the workload to make a friendly search engine. By having the views associated with the data, we don't need to write code to manipulate the page every time the data changes. Also, each component contains the logic and the visual part, so it is easier to reuse them within other components, and even on further projects.
 
@@ -66,9 +66,30 @@ Considering the requirements of the real world situation and Cloud Firestore’s
 
 ## User manual
 
-Make sure you go to: https://localmarto.web.app/ 
-
+1. Visit: https://localmarto.web.app/   
+To access, click on the _Log in_ button on the top right corner.
 ![01](/report-images/01_manual.jpeg)
+
+2. On the login prompt, you may use the following to access:
+>:credit_card: **Your credentials:**  
+Username: ``julio@localmart.mx``  
+Super strong password: ``julius`` (we had to fulfill the 6 character minimum)
+![02](/report-images/02_manual.jpeg)
+
+### Welcome to the LocalMart landing page!
+![04](/report-images/04_manual.jpeg)
+
+3. Click on **Users** to see the registered users to date.
+![05](/report-images/05_manual.jpeg)
+
+Since you have admin privileges (and very likely you will want to test all the functionality of the database, which includes writing and not only reading), you can click on the blue ``Add`` button on the top left to add a new user.
+
+4. You can now add values in the fields, which will be recorded in a new document in Firestore when you save your changes.
+![06](/report-images/06_manual.jpeg)
+
+5. Don't forget to visit the products section too! Go to **Products** in the navbar.
+You should be able to see current listing, and to add a listing as well, using the blue ``Add`` button on the top left.
+![07](/report-images/07_manual.jpeg)
 
 
 
@@ -77,4 +98,6 @@ Make sure you go to: https://localmarto.web.app/
 
 * Firebase Documentation (). _Cloud Firestore data model_. Retrieved from: https://firebase.google.com/docs/firestore/data-model  
 
-* Mahmood, H. (May 27, 2018). _Advantages of developing modern web apps with React.js_. Retrieved from: https://medium.com/@hamzamahmood/advantages-of-developing-modern-web-apps-with-react-js-8504c571db71 
+* GitHub Guides (January 15, 2014). _Mastering Markdown_. Retrieved from: https://guides.github.com/features/mastering-markdown/ 
+
+* Mahmood, H. (May 27, 2018). _Advantages of developing modern web apps with React.js_. Retrieved from: https://medium.com/@hamzamahmood/advantages-of-developing-modern-web-apps-with-react-js-8504c571db71  
