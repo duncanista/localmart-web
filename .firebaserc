@@ -1,0 +1,6 @@
+{
+  "projects": {
+    "localmart-web": "localmarto",
+    "default": "localmarto"
+  }
+}

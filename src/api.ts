@@ -229,15 +229,20 @@ export namespace Api {
   export class Company extends StoreEntityApi<LM.Company & LM.idd>(
     'companies'
   ) {}
+
+  export class Community extends StoreEntityApi<LM.Community & LM.idd>(
+    'communities'
+  ) {}
 }
 
 // TODO move into utils file?
-export namespace JMMImpl {
+export namespace LMImpl {
   export class StoreUserImpl implements LM.StoreUser {
     email = ''
     name = ''
+    lastname = ''
     admin = false
-    credentials: LM.Community = {}
+    communities = [] as string[]
   }
   export class UserCreationDataImpl extends StoreUserImpl
     implements LM.UserCreationData {

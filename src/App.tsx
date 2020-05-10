@@ -13,6 +13,7 @@ import { Home as PeasantHome } from './screens/peasant/home';
 import { Home as AdminHome } from './screens/admin/home';
 import { Products as AdminProducts } from './screens/admin/products';
 import { Users } from './screens/admin/users';
+import { UsersForm } from './screens/admin/users_form';
 
 const App: FunctionComponent = (props) => {
   const [user, setUser] = useState<LM.StoreUser | null>(null)
@@ -47,8 +48,9 @@ const App: FunctionComponent = (props) => {
               <AdminHome path="/" user={user} />
               <AdminProducts path="/products" user={user} />
               <Users path="users" user={user}/>
+              <UsersForm path="users/:uid" user={user}/>
+
               <Redirect from="login" to="/"/>
-              
             </>
           ) : (
             <>

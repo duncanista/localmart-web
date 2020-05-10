@@ -1,11 +1,14 @@
 import React, { FunctionComponent, useEffect, useState } from 'react'
 import { RouteComponentProps } from '@reach/router';
 import 'bootstrap/dist/css/bootstrap.css';
+import '../../css/admin.css';
 
 import { Auth } from '../../fb_app';
-import { Api } from '../../api';
+import { Api, EntityApi } from '../../api';
 import { LM } from '../../localmart_schema';
 
+
+import { LoadingCube } from '../../components/loading_small';
 
 import { Container, Button, Table } from 'reactstrap';
 
@@ -16,12 +19,14 @@ interface UserProps {
 }
 
 export const Users: FunctionComponent<RouteComponentProps<UserProps>> = ({ navigate, user }) => {
-  const [entities, setEntities] = useState<LM.StoreUser[] | null>(null)
-  
+  const [ready, setReady] = useState(false)
+  const [entities, setEntities] = useState<(LM.StoreUser & LM.idd)[] | null>(null)
   useEffect(() => {
     const unsubAuth = Auth.onAuthStateChanged(
       async () => {
+        const users = await Api.User.readAll()
         setEntities(await Api.User.readAll());
+        setReady(true);
       }
     )
     return function cleanup() {
@@ -29,13 +34,22 @@ export const Users: FunctionComponent<RouteComponentProps<UserProps>> = ({ navig
     }
   }, [])
 
-  return (
+  return !ready ? (
+    <LoadingCube/>
+    ) : (
     <>
       <Container fluid>
-        <Navbar user={user} userActive />
+        <Navbar user={user} usersActive />
       </Container>
+
+      <Container className="admin-controls">
+        <Button onClick={ () => navigate!('new')}>
+          Add
+        </Button>
+      </Container>
+
       <Container>
-        <Table>
+        <Table className="admin-table">
           <thead>
             <tr>
               <th>#</th>
@@ -45,8 +59,13 @@ export const Users: FunctionComponent<RouteComponentProps<UserProps>> = ({ navig
             </tr>
           </thead>
           <tbody>
-            { entities?.map((entity: LM.StoreUser, index) => (
-              <tr>
+            { entities?.map((entity: LM.StoreUser & LM.idd, index) => (
+              <tr
+                key={entity.uid}
+                onClick={() =>
+                  navigate!(`/${Api.User!._collectionPath}/${entity.uid}`)
+                }
+              >
               <th scope="row">{index+1}</th>
               <td>{`${entity.name} ${entity.lastname}`}</td>
               <td>{entity.email}</td>
