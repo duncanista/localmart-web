@@ -46,7 +46,7 @@ To get data, Firestore implements shallow queries. With the alternating “colle
 
 Certainly, not having a schema and filling certain fields “by convention” when writing can seem risky, and coding defensively IS encouraged when working with schemaless databases. Nonetheless, this offers the ability of adding additional fields or omitting fields in documents for various reasons without error. And Firestore’s security rules, also configured by the developer, contribute significantly to enforcing certain measures or guaranteeing that no user (no matter the privilege level, if any) has access to data they shouldn’t see or modify.
 
-![Our preliminary model](/report-images/initial-diagram.JPG)
+![Our preliminary model](/report-images/initial-diagram-chido.jpeg)
 
 Considering the requirements of the real world situation and Cloud Firestore’s data model, Localmart’s database is comprised of the following collections:
 
