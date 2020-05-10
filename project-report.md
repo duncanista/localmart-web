@@ -66,7 +66,15 @@ Considering the requirements of the real world situation and Cloud Firestore’s
 
 ## User manual
 
+Make sure you go to: https://localmarto.web.app/ 
+
+![01](/report-images/01_manual.jpeg)
+
 
 
 ## Information sources
-* Firebase. (March 26, 2018). What is a NoSQL Database? How is Cloud Firestore structured? | Get to Know Cloud Firestore #1. Retrieved from: https://youtu.be/v_hR4K4auoQ 
+* Firebase. (March 26, 2018). _What is a NoSQL Database? How is Cloud Firestore structured? | Get to Know Cloud Firestore #1_. Retrieved from: https://youtu.be/v_hR4K4auoQ 
+
+* Firebase Documentation (). _Cloud Firestore data model_. Retrieved from: https://firebase.google.com/docs/firestore/data-model  
+
+* Mahmood, H. (May 27, 2018). _Advantages of developing modern web apps with React.js_. Retrieved from: https://medium.com/@hamzamahmood/advantages-of-developing-modern-web-apps-with-react-js-8504c571db71 
