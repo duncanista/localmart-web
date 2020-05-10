@@ -34,7 +34,7 @@ For the application’s database implementation, Cloud Firestore was chosen. Thi
 Documents, much like JSON objects or dictionaries contain key-value pairs, called fields in the Cloud Firestore nomenclature. Fields can be from numbers and strings to maps, which resemble another JSON object contained in the document. Documents cannot exceed a MegaByte in size.
 All documents must be contained in collections, where we can group and keep documents of the same type, storing information for the same object. Documents cannot contain other documents within them, but they can point to other collections (i.e., sub-collections, which would be one level down in the hierarchical tree). The root of the tree only contains collections, since documents can only exist within them.
 
-![Firestore's data model](/report-images/IMG_0554.png)
+![Firestore's data model](/report-images/IMG_0554.PNG)
 
 The core advantage of this model is how fast and easy reading becomes, given that all the information we could require is already in one place, due to the usage of denormalized data. Therefore, there is no longer need to use join operations and searching through multiple tables to take place. And while writing will now have to take place multiple times, in multiple places, the idea behind this model is that in the majority of cases, database reads will outnumber writes.
 
