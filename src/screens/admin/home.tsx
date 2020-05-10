@@ -7,20 +7,27 @@ import { Api } from '../../api';
 import { LM } from '../../localmart_schema';
 
 
-import { Container, Button } from 'reactstrap';
+import { Container, Row, Col } from 'reactstrap';
 
-import { LMNavbar as Navbar} from '../../components/navbar';
+import { LMNavbar as Navbar } from '../../components/navbar';
 
 interface HomeProps {
   user: LM.StoreUser;
 }
 
-export const Home: FunctionComponent<RouteComponentProps<HomeProps>> = ({ navigate, user}) => {
+export const Home: FunctionComponent<RouteComponentProps<HomeProps>> = ({ navigate, user }) => {
   console.log(user);
   return (
     <>
       <Container fluid>
-        <Navbar user={user}/>
+        <Navbar user={user} />
+      </Container>
+      <Container>
+        <Row>
+          <Col>
+            <h2>Actually, this page doesn't have a thing, so don't expect stuff to be here, lmao, go search or something.</h2>
+          </Col>
+        </Row>
       </Container>
     </>
   );

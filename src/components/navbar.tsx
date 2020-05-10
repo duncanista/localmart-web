@@ -23,10 +23,12 @@ import '../css/navbar.css';
 
 interface NavbarProps {
   user?: LM.StoreUser;
-  userActive?: boolean;
+  usersActive?: boolean;
+  productsActive?: boolean;
+  companiesActive?: boolean;
 }
 
-export const LMNavbar: FunctionComponent<NavbarProps> = ({ user, userActive = false }) => {
+export const LMNavbar: FunctionComponent<NavbarProps> = ({ user, usersActive = false, productsActive = false, companiesActive = false }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggle = () => setIsOpen(!isOpen);
@@ -41,14 +43,14 @@ export const LMNavbar: FunctionComponent<NavbarProps> = ({ user, userActive = fa
           <Nav className="mr-auto" navbar>
             { user?.admin && (
                <NavItem>
-               <NavLink href="users" active={userActive} >Users</NavLink>
+               <NavLink href="users" active={usersActive} >Users</NavLink>
              </NavItem>
               )
             }
            
 
             <NavItem>
-              <NavLink href="products">Products</NavLink>
+              <NavLink href="products" active={productsActive} >Products</NavLink>
             </NavItem>
 
             <NavItem>

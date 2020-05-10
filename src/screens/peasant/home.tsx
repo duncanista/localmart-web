@@ -7,7 +7,7 @@ import { Api } from '../../api';
 import { LM } from '../../localmart_schema';
 
 
-import { Container, Button } from 'reactstrap';
+import { Container, Row, Col } from 'reactstrap';
 
 import { LMNavbar as Navbar} from '../../components/navbar';
 
@@ -21,6 +21,14 @@ export const Home: FunctionComponent<RouteComponentProps<HomeProps>> = ({ naviga
     <>
       <Container fluid>
         <Navbar user={user}/>
+      </Container>
+
+      <Container>
+        <Row>
+          <Col>
+            <h2>This is the peasant home, of course you do not have permissions cuz u suck boi.</h2>
+          </Col>
+        </Row>
       </Container>
     </>
   );

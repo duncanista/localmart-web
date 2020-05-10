@@ -26,6 +26,11 @@ export namespace LM {
   }
 
   export interface Community {
+    name: string;
+    shortname: string;
+  }
+
+  export interface UserCommunities {
     [communityName: string] : StringSet;
   }
 
@@ -34,7 +39,7 @@ export namespace LM {
     name?: string;
     lastname?: string;
     admin: boolean;
-    communities?: Community;
+    communities?: string[];
   }
   export type UserCreationData = StoreUser & { password?: string };
   export type UserUpdateData = idd & Partial<UserCreationData>;
