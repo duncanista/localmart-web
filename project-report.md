@@ -101,7 +101,7 @@ Again, click on a user from the table. You should see a screen like the previous
 ![09](/report-images/09_manual.png)  
 
 7. Don't forget to visit the products section too! Go to **Products** in the navbar.
-You should be able to see current listing, and to add a listing as well, using the blue ``Add`` button on the top left.
+You should be able to see current listing, and not to add a listing, not using the blue ``Add`` button on the top left.
 ![07](/report-images/07_manual.jpeg)
 As with users, you can also edit details of the listings or remove them.
 
